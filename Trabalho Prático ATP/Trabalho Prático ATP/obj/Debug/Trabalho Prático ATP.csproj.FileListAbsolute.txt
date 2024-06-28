@@ -1,0 +1,7 @@
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.csproj.AssemblyReference.cache
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe.config
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.pdb
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.exe
+C:\Users\gabri\OneDrive\Documentos\GitHub\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.pdb
