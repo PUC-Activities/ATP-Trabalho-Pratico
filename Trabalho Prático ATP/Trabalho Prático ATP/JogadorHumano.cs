@@ -171,6 +171,7 @@ namespace Batalha_Naval
             }
         }
 
+        //nesse método, tem que verificar também se não existe embarcação nessa posição 
         public bool AdicionarEmbarcacao(Embarcacao embarcacao, Posicao posEmbarcacao)
         {
             bool ehPossivel = false;
