@@ -124,7 +124,8 @@ namespace Batalha_Naval
                 {
                     if (i == tiroRecebido.Linha && j == tiroRecebido.Coluna)
                     {
-                        if (tabuleiro[i, j] != 'A')
+
+                        if (tabuleiro[i, j] == 'X')
                         {
                             acertou = true;
                             tabuleiro[i, j] = 'T';
@@ -133,6 +134,11 @@ namespace Batalha_Naval
                         {
                             tabuleiro[i, j] = 'X';
                         }
+                        else if (tabuleiro[i, j] == 'T')
+                        {
+                            Console.WriteLine("Essa posição já foi atacada tente outra");
+                        }
+
                     }
                 }
             }

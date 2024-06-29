@@ -88,9 +88,10 @@ namespace Trabalho_Prático_ATP
             {
                 for (int j = 0; j < tabuleiro.GetLength(1); j++)
                 {
-                    if(i == tiroRecebido.Linha && j == tiroRecebido.Coluna)
+                    if (i == tiroRecebido.Linha && j == tiroRecebido.Coluna)
                     {
-                        if (tabuleiro[i, j] != 'A')
+                        
+                        if (tabuleiro[i, j] == 'X')
                         {
                             acertou = true;
                             tabuleiro[i, j] = 'T';
@@ -99,6 +100,11 @@ namespace Trabalho_Prático_ATP
                         {
                             tabuleiro[i, j] = 'X';
                         }
+                        else if (tabuleiro[i, j] == 'T')
+                        {
+                            Console.WriteLine("Essa posição já foi atacada tente outra");
+                        }
+                        
                     }
                 }
             }
