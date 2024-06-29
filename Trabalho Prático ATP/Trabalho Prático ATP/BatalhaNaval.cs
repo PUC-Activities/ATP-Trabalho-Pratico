@@ -77,6 +77,7 @@ namespace Trabalho_Prático_ATP
             JogadorHumano humano = new JogadorHumano(linhasTab, colunasTab, nomeHumano);
             JogadorComputador computador = new JogadorComputador(linhasTab, colunasTab);
 
+            Console.WriteLine("Seu Nickname: " + humano.Nickname);
 
 
 
