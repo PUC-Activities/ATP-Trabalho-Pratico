@@ -12,3 +12,10 @@ C:\Users\Micro\Desktop\Puc Minas\Atividades PUC\Atp\ATP-TrabalhoPratico-2024\Tra
 C:\Users\Micro\Desktop\Puc Minas\Atividades PUC\Atp\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe.config
 C:\Users\Micro\Desktop\Puc Minas\Atividades PUC\Atp\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe
 C:\Users\Micro\Desktop\Puc Minas\Atividades PUC\Atp\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.pdb
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe.config
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.exe
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\bin\Debug\Trabalho Prático ATP.pdb
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.csproj.AssemblyReference.cache
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.csproj.CoreCompileInputs.cache
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.exe
+C:\Users\ryanm\Source\Repos\ryanmoreir4\ATP-TrabalhoPratico-2024\Trabalho Prático ATP\Trabalho Prático ATP\obj\Debug\Trabalho Prático ATP.pdb
