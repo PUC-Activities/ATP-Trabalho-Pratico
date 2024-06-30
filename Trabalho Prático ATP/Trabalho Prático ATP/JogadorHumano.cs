@@ -29,7 +29,7 @@ namespace Batalha_Naval
             posTirosDados = new Posicao[linhas * colunas];
             for (int i = 0; i < posTirosDados.Length; i++)
             {
-                posTirosDados[i] = new Posicao(-1, -1);
+                posTirosDados[i] = new Posicao(-1, -1); ;
             }
 
             nickname = GerarNickname(nomeCompleto);
@@ -84,11 +84,13 @@ namespace Batalha_Naval
 
             do
             {
+                Console.WriteLine($"\n----------------------------------------------------------------------");
                 Console.Write("Informe a linha do Ataque: ");
                 int lin = int.Parse(Console.ReadLine());
                 Console.Write("Informe a coluna do Ataque: ");
                 int col = int.Parse(Console.ReadLine());
                 tiro = new Posicao(lin, col);
+                Console.WriteLine($"----------------------------------------------------------------------\n");
 
                 if (lin < 0 || lin >= tabuleiro.GetLength(0) || col < 0 || col >= tabuleiro.GetLength(1))
                 {
@@ -120,29 +122,24 @@ namespace Batalha_Naval
         {
             bool acertou = false;
 
-            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            if (tiroRecebido.Linha >= 0 && tiroRecebido.Linha < tabuleiro.GetLength(0) && tiroRecebido.Coluna >= 0 && tiroRecebido.Coluna < tabuleiro.GetLength(1))
             {
-                for (int j = 0; j < tabuleiro.GetLength(1); j++)
+                char posicaoAtual = tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna];
+S
+                if (posicaoAtual != 'A') 
                 {
-                    if (i == tiroRecebido.Linha && j == tiroRecebido.Coluna)
-                    {
-
-                        if (tabuleiro[i, j] == 'X')
-                        {
-                            acertou = true;
-                            tabuleiro[i, j] = 'T';
-                        }
-                        else if (tabuleiro[i, j] == 'A')
-                        {
-                            tabuleiro[i, j] = 'X';
-                        }
-                        else if (tabuleiro[i, j] == 'T')
-                        {
-                            Console.WriteLine("Essa posição já foi atacada tente outra");
-                        }
-
-                    }
+                    acertou = true;
+                    tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna] = 'T'; 
                 }
+                else if (posicaoAtual == 'A')
+                {
+                    tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna] = 'X'; 
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("Posição fora dos limites do tabuleiro.");
             }
 
             return acertou;
@@ -151,9 +148,9 @@ namespace Batalha_Naval
         public void ImprimirTabuleiroJogador()
         {
 
-            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            for (int i = 0; i < tabuleiro.GetLength(1); i++)
             {
-                for (int j = 0; j < tabuleiro.GetLength(1); j++)
+                for (int j = 0; j < tabuleiro.GetLength(0); j++)
                 {
                     Console.Write($"\t{tabuleiro[i, j]}");
                 }
@@ -163,13 +160,14 @@ namespace Batalha_Naval
 
         public void ImprimirTabuleiroAdversario()
         {
-            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+
+            for (int i = 0; i < tabuleiro.GetLength(1); i++)
             {
-                for (int j = 0; j < tabuleiro.GetLength(1); j++)
+                for (int j = 0; j < tabuleiro.GetLength(0); j++)
                 {
                     if (tabuleiro[i, j] == 'A' || tabuleiro[i, j] == 'T' || tabuleiro[i, j] == 'X')
                     {
-                        Console.Write($"\t {tabuleiro[i, j]}");
+                        Console.Write($"\t{tabuleiro[i, j]}");
                     }
                     else
                     {
@@ -180,19 +178,16 @@ namespace Batalha_Naval
             }
         }
 
-        //nesse método, tem que verificar também se não existe embarcação nessa posição 
         public bool AdicionarEmbarcacao(Embarcacao embarcacao, Posicao posEmbarcacao)
         {
             int linha = posEmbarcacao.Linha;
             int coluna = posEmbarcacao.Coluna;
 
-            // Verificar se a embarcação cabe no tabuleiro na posição inicial
             if (linha < 0 || linha >= tabuleiro.GetLength(0) || coluna < 0 || coluna + embarcacao.Tamanho > tabuleiro.GetLength(1))
             {
                 return false;
             }
 
-            // Verificar se todas as posições estão livres
             for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
             {
                 if (tabuleiro[linha, i] != 'A')
@@ -201,10 +196,9 @@ namespace Batalha_Naval
                 }
             }
 
-            // Adicionar a embarcação ao tabuleiro
             for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
             {
-                tabuleiro[linha, i] = 'X'; // Usando 'X' para marcar a posição da embarcação
+                tabuleiro[linha, i] = 'X'; 
             }
 
             return true;

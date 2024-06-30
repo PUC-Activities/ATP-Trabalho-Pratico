@@ -2,11 +2,13 @@
 using System.Text;
 using System.IO;
 using Batalha_Naval;
+using System.CodeDom;
 
 namespace Trabalho_Prático_ATP
 {
     internal class BatalhaNaval
     {
+        //função que abre o arquivo de frotas 
         static bool ArquivoComputador(JogadorComputador computador, Embarcacao[] nomesEmbarcacoes)
         {
             bool arquivoValido = true;
@@ -14,13 +16,16 @@ namespace Trabalho_Prático_ATP
 
             Posicao posEmbarcaoArquivo = new Posicao();
 
+            //preenche todo o tabuleiro do computador com água 
             PreencheTabuleiros(computador.Tabuleiro);
 
+            // try catch que faz a manipualção do arquivo 
             try
             {
                 StreamReader frotaComputadores = new StreamReader("frotaComputador.txt", Encoding.UTF8);
 
-                //inicializando o vetor de embarcações
+
+                //inicializa um vetor de objetos de embarcações que conterá as 5 embarcações lidas do arquivo
                 for (int i = 0; i < nomesEmbarcacoes.Length; i++)
                 {
                     nomesEmbarcacoes[i] = new Embarcacao("", 0);
@@ -36,11 +41,12 @@ namespace Trabalho_Prático_ATP
                     posEmbarcaoArquivo.Coluna = int.Parse(temp[2]);
                     Embarcacao embarcacaoAtual;
 
+                    //chama a função que determina o tipo de embarcação que é e retorna um inteiro com o tipo de embarcação, se estiver escrito errado retorna -1
                     int tipoEmbarcacao = DeterminarTipoEmbarcacao(nomeEmbarcacao);
 
                     if (tipoEmbarcacao >= 0 && tipoEmbarcacao < 5)
                     {
-
+                        // se o numero de tipoEmbarcação for 0, quer dizer que é um porta-aviões, ele escreve 5 no objeto.tamanho e define a letra q vai ser escrita no tabuleiro 
                         switch (tipoEmbarcacao)
                         {
                             case 0:
@@ -66,10 +72,12 @@ namespace Trabalho_Prático_ATP
                                 break;
                         }
 
+                        //guarda o nome que estava salvo em temp (variável temporário) no objeto
                         nomesEmbarcacoes[tipoEmbarcacao].Nome = temp[0];
 
                         embarcacaoAtual = nomesEmbarcacoes[tipoEmbarcacao];
 
+                        //booleano que guarda o valor de retorno da funçao, se pode ou n adicioar aquela embarcação 
                         podeAdicionar = computador.AdicionarEmbarcacao(embarcacaoAtual, posEmbarcaoArquivo);
 
                         if (podeAdicionar)
@@ -104,6 +112,7 @@ namespace Trabalho_Prático_ATP
             return arquivoValido;
         }
 
+        //função que recebe o nome da embarcação e determina o tipo dela 
         static int DeterminarTipoEmbarcacao(string nomeEmbarcacao)
         {
             switch (nomeEmbarcacao)
@@ -122,7 +131,9 @@ namespace Trabalho_Prático_ATP
                     return -1;
             }
         }
-        static void PreencheTabuleiros(char[,] tabuleiro) //trocar o tabuleiro
+
+        //funçao para preencher os tabuleiros com água 
+        static void PreencheTabuleiros(char[,] tabuleiro) 
         {
             for (int i = 0; i < tabuleiro.GetLength(0); i++)
             {
@@ -133,6 +144,7 @@ namespace Trabalho_Prático_ATP
             }
         }
 
+        //função que pega a linha e a coluna de uma embarcação 
         static void PreenchePosicaoEmbarcao(Posicao embarcacao)
         {
             Console.Write("Linha: ");
@@ -142,6 +154,7 @@ namespace Trabalho_Prático_ATP
             embarcacao.Coluna = int.Parse(Console.ReadLine());
         }
 
+        //função que é chamada quando o humano for posicionar suas embarcações 
         static void PreencheTabuleiroHumano(char letraEmbarcacao, int nEmbarcacao, Posicao posEmbarcaoHumano, Embarcacao[] nomesEmbarcacoes, JogadorHumano humano)
         {
             bool podeAdicionar = false;
@@ -149,14 +162,12 @@ namespace Trabalho_Prático_ATP
 
             while (podeAdicionar == false)
             {
-
-                //chama o método AdicinarEmbarcacao da classe JogadorHumano para verificar se aquela embarcação pode ser criada
+                //chama a função da classe, que retorna um booleano dizendo se pode ou não existir aquela embarcação naquele lugar
                 podeAdicionar = humano.AdicionarEmbarcacao(embarcacaoAtual, posEmbarcaoHumano);
 
 
                 if (podeAdicionar == true)
                 {
-                    // Preencher a matriz com a embarcação
                     for (int l = posEmbarcaoHumano.Coluna; l < posEmbarcaoHumano.Coluna + nomesEmbarcacoes[nEmbarcacao].Tamanho; l++)
                     {
                         humano.Tabuleiro[posEmbarcaoHumano.Linha, l] = letraEmbarcacao;
@@ -173,8 +184,7 @@ namespace Trabalho_Prático_ATP
 
         static void Main(string[] args)
         {
-
-            //Abrindo o arquivo frotaComputadores verificando se é válido e se for, continua o programa
+            //verifica se o arquivo é válido, se não, não abre o programa
 
             int linhasTab = 10, colunasTab = 10;
             Embarcacao[] nomesEmbarcacoes = new Embarcacao[5];
@@ -183,11 +193,9 @@ namespace Trabalho_Prático_ATP
 
             if (arquivoValido == true)
             {
-                //Declaração de Variáveis 
                 bool acertouTiro = false;
                 int count = 0, nEmbarcacao;
-                string nomeHumano, nickName;
-                Embarcacao embarcacaoHumano;
+                string nomeHumano, vencedor ;
                 Posicao posEmbarcaoHumano = new Posicao();
                 Posicao posTiro = new Posicao();
 
@@ -197,23 +205,24 @@ namespace Trabalho_Prático_ATP
                 nomeHumano = Console.ReadLine();
 
 
-                //Instanciando as Classes e gerando nickName
                 JogadorHumano humano = new JogadorHumano(linhasTab, colunasTab, nomeHumano);
 
 
-                //Preenchendo o tabuleiro do jogador com A, e escolhendo onde ficarão suas embarcações
                 PreencheTabuleiros(humano.Tabuleiro);
 
                 Console.WriteLine($"\n{humano.Nickname} posicione suas embarcações. Atenção: ");
+                Console.WriteLine($"----------------------------------------------------------------------");
+
                 Console.WriteLine($"Embarcação\tQuantidade\tRepresentação no tabuleiro");
 
-                Console.WriteLine($"Porta-aviões\t 1 \t\tPPPPP");
+                Console.WriteLine($"\nPorta-aviões\t 1 \t\tPPPPP");
                 Console.WriteLine($"Encouraçado\t 1 \t\tEEEE");
                 Console.WriteLine($"Cruzador\t 2 \t\tCCC");
                 Console.WriteLine($"Hidroavião\t 2 \t\tHH");
                 Console.WriteLine($"Submarino\t 3 \t\tS");
+                Console.WriteLine($"----------------------------------------------------------------------");
 
-
+                //o while itera sobre as 5 embarcações, e pra cada delas, itera a quantidade de vezes que ela deve existir, Ex: lê 3 vzs as informações de posição do submarino, pq precisam de 3 dele
                 while (count < 5)
                 {
                     switch (count)
@@ -227,7 +236,6 @@ namespace Trabalho_Prático_ATP
                                 PreencheTabuleiroHumano('P', count, posEmbarcaoHumano, nomesEmbarcacoes, humano);
                             }
 
-                            //humano.ImprimirTabuleiroJogador();
 
                             break;
                         case 1:
@@ -239,7 +247,6 @@ namespace Trabalho_Prático_ATP
                                 PreencheTabuleiroHumano('E', count, posEmbarcaoHumano, nomesEmbarcacoes, humano);
                             }
 
-                            //humano.ImprimirTabuleiroJogador();
 
                             break;
                         case 2:
@@ -251,7 +258,6 @@ namespace Trabalho_Prático_ATP
                                 PreencheTabuleiroHumano('C', count, posEmbarcaoHumano, nomesEmbarcacoes, humano);
                             }
 
-                            //humano.ImprimirTabuleiroJogador();
 
                             break;
                         case 3:
@@ -263,103 +269,138 @@ namespace Trabalho_Prático_ATP
                                 PreencheTabuleiroHumano('H', count, posEmbarcaoHumano, nomesEmbarcacoes, humano);
                             }
 
-                            //humano.ImprimirTabuleiroJogador();
                             break;
                         case 4:
-
-                            //esse primeiro for itera sobre a quantidade de embarcações daquele tipo, no caso do submarino: 3 
+ 
                             for (int i = 0; i < 3; i++)
                             {
                                 Console.WriteLine($"Preencha o {nomesEmbarcacoes[4].Nome} numero {i + 1}");
-                                PreenchePosicaoEmbarcao(posEmbarcaoHumano); //Lê a linha e a coluna e colocar no objeto = Posicoes() posEmbarcacaoHumano;
+                                PreenchePosicaoEmbarcao(posEmbarcaoHumano);
                                 PreencheTabuleiroHumano('S', count, posEmbarcaoHumano, nomesEmbarcacoes, humano);
                             }
-
-                            //humano.ImprimirTabuleiroJogador();
                             break;
                     }
 
                     count++;
                 }
 
-                humano.ImprimirTabuleiroJogador();
+                //imprime o tabuleiro do jogador 
+                computador.ImprimirTabuleiroJogador();
 
-                while (humano.Pontuacao < 23 || computador.Pontuacao < 23)
+                //efetivamente roda o jogo
+                while (humano.Pontuacao < 23 && computador.Pontuacao < 23)
                 {
-                    Console.WriteLine("Essa é a posição atual do tabuleiro do jogador computador: ");
-
+                    Console.WriteLine("\nEssa é a posição atual do tabuleiro do jogador computador: ");
+                    Console.WriteLine($"----------------------------------------------------------------------");
                     computador.ImprimirTabuleiroAdversario();
 
+                    //chama a função para escolher uma posição válida, e verifica se essa posição é válida no tabuleiro do computador
                     posTiro = humano.EscolherAtaque();
                     acertouTiro = computador.ReceberAtaque(posTiro);
+                    humano.NumTirosDados++;
 
-                    while (acertouTiro == true)
+                    if (acertouTiro)
                     {
-                        computador.ImprimirTabuleiroAdversario();
-                        posTiro = humano.EscolherAtaque();
-
-                        acertouTiro = computador.ReceberAtaque(posTiro);
-
+                        //se ele acertou o tiro, teoricamente era pra poder repetir até errar
+                        Console.WriteLine("Você acertou um tiro!");
                         humano.Pontuacao++;
+
+
+                        while (acertouTiro)
+                        {
+                            Console.WriteLine($"----------------------------------------------------------------------");
+                            posTiro = humano.EscolherAtaque();
+                            acertouTiro = computador.ReceberAtaque(posTiro);
+
+                            if (acertouTiro)
+                            {
+                                Console.WriteLine("Você acertou um tiro!");
+                                humano.Pontuacao++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Você errou o tiro. Agora é a vez do computador.");
                     }
 
-                    Console.WriteLine($"Essa é a posição atual do tabuleiro do {humano.Nickname}: ");
-
-                    humano.ImprimirTabuleiroAdversario();
+                    //faz a mesma lógica anterior só que dessa vez pro computador 
+                    Console.WriteLine($"\nEssa é a posição atual do tabuleiro do jogador {humano.Nickname}: ");
+                    Console.WriteLine($"----------------------------------------------------------------------");
+                    computador.ImprimirTabuleiroAdversario();
 
                     posTiro = computador.EscolherAtaque();
                     acertouTiro = humano.ReceberAtaque(posTiro);
+                    computador.NumTirosDados++;
 
-                    while (acertouTiro == true)
+                    if (acertouTiro)
                     {
-                        humano.ImprimirTabuleiroAdversario();
-                        posTiro = computador.EscolherAtaque();
-
-                        acertouTiro = humano.ReceberAtaque(posTiro);
-
+                        Console.WriteLine("O computador acertou um tiro!");
                         computador.Pontuacao++;
+
+                        while (acertouTiro)
+                        {
+                            posTiro = computador.EscolherAtaque();
+                            acertouTiro = humano.ReceberAtaque(posTiro);
+
+                            if (acertouTiro)
+                            {
+                                Console.WriteLine("O computador acertou mais um tiro!");
+                                computador.Pontuacao++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("O computador errou o tiro.");
                     }
                 }
 
-                string vencedor;
                 if (humano.Pontuacao == 22)
                 {
                     vencedor = humano.Nickname;
+                    Console.Write($"Vencedor: {humano.Nickname}. \nParabéns!");
                 }
                 else
                 {
                     vencedor = "Computador";
+                    Console.Write($"Vencedor: Computador. \nParabéns!");
                 }
 
-                using (StreamWriter sw = new StreamWriter("jogadas.txt"))
+                //parte que abre o arquivo, escreve o vencedor lá e as suas jogadas 
+                try
                 {
-                    sw.WriteLine($"O vencedor foi: {vencedor}");
+                    using (StreamWriter arqVencedor = new StreamWriter("jogadas.txt", false, Encoding.UTF8))
+                    {
+                        arqVencedor.WriteLine($"O vencedor foi: {vencedor}");
 
-                    Posicao[] tiros;
-                    if (vencedor == humano.Nickname)
-                    {
-                        tiros = humano.PosTirosDados;
-                    }
-                    else
-                    {
-                        tiros = computador.PosTirosDados;
-                    }
-
-                    foreach (var tiro in tiros)
-                    {
-                        if (tiro.Linha != -1 && tiro.Coluna != -1)
+                        Posicao[] tiros;
+                        if (vencedor == humano.Nickname)
                         {
-                            sw.WriteLine($"Linha: {tiro.Linha}, Coluna: {tiro.Coluna}");
+                            tiros = humano.PosTirosDados;
+                        }
+                        else
+                        {
+                            tiros = computador.PosTirosDados;
+                        }
+
+                        foreach (var tiro in tiros)
+                        {
+                            if (tiro.Linha != -1 && tiro.Coluna != -1)
+                            {
+                                arqVencedor.WriteLine($"Linha: {tiro.Linha}, Coluna: {tiro.Coluna}");
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exceção: " + ex);
+                }
+
+
             }
             Console.ReadLine(); 
         }
     }
 }
-
-//tirar os métodos construtores da classe posicao 
-//arruma função de abrir o arquivo
-//adicionar função de adicinar embarcação na função arquivo do main 
-//não deixar mais de uma embarcação ser adicionada

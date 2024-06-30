@@ -27,7 +27,11 @@ namespace Trabalho_Prático_ATP
 
             pontuacao = 0;
             numTirosDados = 0;
-            posTirosDados = new Posicao[numTirosDados];
+            posTirosDados = new Posicao[linhas * colunas];
+            for (int i = 0; i < posTirosDados.Length; i++)
+            {
+                posTirosDados[i] = new Posicao(-1, -1);
+            }
         }
 
         public char[,] Tabuleiro
@@ -56,27 +60,29 @@ namespace Trabalho_Prático_ATP
 
         public Posicao EscolherAtaque()
         {
-            bool posicaoValida;
-
+            bool teste;
             do
             {
-                posicaoValida = true;
+                int lin = random.Next(0, tabuleiro.GetLength(0));
+                int col = random.Next(0, tabuleiro.GetLength(1));
 
-                posTiroDado.Linha = random.Next(0, 9);
-                posTiroDado.Coluna = random.Next(0, 9);
+                posTiroDado = new Posicao(lin, col);
+                teste = true;
 
-                
-                for(int i=0 ; i < posTirosDados.Length ; i++)
+                teste = true;
+                for (int i = 0; i < posTirosDados.Length && teste; i++)
                 {
-                    if (posTirosDados[i].Linha == posTiroDado.Linha && PosTirosDados[i].Coluna == posTiroDado.Coluna)
+                    if (posTiroDado.Linha == posTirosDados[i].Linha && posTiroDado.Coluna == posTirosDados[i].Coluna)
                     {
-                        posicaoValida = false;
+                        Console.WriteLine("Posição já utilizada. Tente novamente.");
+                        teste = false;
                     }
                 }
 
-            } while (!posicaoValida);
+            } while (!teste);
 
-            //falta adicionar no final do vetor posTirosDados
+            posTirosDados[numTirosDados] = posTiroDado;
+            numTirosDados++;
 
             return posTiroDado;
         }
@@ -84,34 +90,28 @@ namespace Trabalho_Prático_ATP
         {
             bool acertou = false;
 
-            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            if (tiroRecebido.Linha >= 0 && tiroRecebido.Linha < tabuleiro.GetLength(0) && tiroRecebido.Coluna >= 0 && tiroRecebido.Coluna < tabuleiro.GetLength(1))
             {
-                for (int j = 0; j < tabuleiro.GetLength(1); j++)
+                char posicaoAtual = tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna];
+
+                if (posicaoAtual == 'X') 
                 {
-                    if (i == tiroRecebido.Linha && j == tiroRecebido.Coluna)
-                    {
-                        
-                        if (tabuleiro[i, j] == 'X')
-                        {
-                            acertou = true;
-                            tabuleiro[i, j] = 'T';
-                        }
-                        else if (tabuleiro[i, j] == 'A')
-                        {
-                            tabuleiro[i, j] = 'X';
-                        }
-                        else if (tabuleiro[i, j] == 'T')
-                        {
-                            Console.WriteLine("Essa posição já foi atacada tente outra");
-                        }
-                        
-                    }
+                    acertou = true;
+                    tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna] = 'T';
                 }
+                else if (posicaoAtual == 'A') 
+                {
+                    tabuleiro[tiroRecebido.Linha, tiroRecebido.Coluna] = 'X';
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("Posição fora dos limites do tabuleiro.");
             }
 
             return acertou;
         }
-
         public void ImprimirTabuleiroJogador()
         {
             
@@ -149,13 +149,11 @@ namespace Trabalho_Prático_ATP
             int linha = posEmbarcacao.Linha;
             int coluna = posEmbarcacao.Coluna;
 
-            // Verificar se a embarcação cabe no tabuleiro na posição inicial
             if (linha < 0 || linha >= tabuleiro.GetLength(0) || coluna < 0 || coluna + embarcacao.Tamanho > tabuleiro.GetLength(1))
             {
                 return false;
             }
 
-            // Verificar se todas as posições estão livres
             for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
             {
                 if (tabuleiro[linha, i] != 'A')
@@ -163,11 +161,9 @@ namespace Trabalho_Prático_ATP
                     return false;
                 }
             }
-
-            // Adicionar a embarcação ao tabuleiro
             for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
             {
-                tabuleiro[linha, i] = 'X'; // Usando 'X' para marcar a posição da embarcação
+                tabuleiro[linha, i] = 'X'; 
             }
 
             return true;

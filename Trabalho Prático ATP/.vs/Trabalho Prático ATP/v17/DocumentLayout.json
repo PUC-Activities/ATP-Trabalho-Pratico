@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\trabalho pr\u00E1tico atp\\jogadorhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\trabalho pr\u00E1tico atp\\batalhanaval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\batalhanaval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\trabalho pr\u00E1tico atp\\posicao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\posicao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|c:\\users\\gabri\\onedrive\\documentos\\github\\atp-trabalhopratico-2024\\trabalho pr\u00E1tico atp\\trabalho pr\u00E1tico atp\\jogadorhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\jogadorhumano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\trabalho pr\u00E1tico atp\\jogadorcomputador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\jogadorcomputador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|c:\\users\\gabri\\onedrive\\documentos\\github\\atp-trabalhopratico-2024\\trabalho pr\u00E1tico atp\\trabalho pr\u00E1tico atp\\batalhanaval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\batalhanaval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|c:\\users\\gabri\\onedrive\\documentos\\github\\atp-trabalhopratico-2024\\trabalho pr\u00E1tico atp\\trabalho pr\u00E1tico atp\\embarcacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7AD4CA90-A5F9-43CC-B59B-BF3D4E669542}|Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP.csproj|solutionrelative:trabalho pr\u00E1tico atp\\embarcacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Embarcacao.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\Embarcacao.cs",
-              "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\Embarcacao.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\Embarcacao.cs",
-              "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\Embarcacao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T15:19:06.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JogadorComputador.cs",
-              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
-              "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
-              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
-              "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAQwIsAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:48:15.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "JogadorHumano.cs",
               "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorHumano.cs",
               "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\JogadorHumano.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorHumano.cs",
               "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\JogadorHumano.cs",
-              "ViewState": "AQIAAJcAAAAAAAAAAAAQwKsAAAA9AAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAQwMgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:45:41.855Z",
+              "WhenOpened": "2024-06-30T19:08:59.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "JogadorComputador.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
+              "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
+              "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\JogadorComputador.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T19:10:12.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Posicao.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\Posicao.cs",
+              "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\Posicao.cs",
+              "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\Posicao.cs",
+              "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\Posicao.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T19:10:00.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "BatalhaNaval.cs",
               "DocumentMoniker": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\BatalhaNaval.cs",
               "RelativeDocumentMoniker": "Trabalho Pr\u00E1tico ATP\\BatalhaNaval.cs",
               "ToolTip": "C:\\Users\\gabri\\OneDrive\\Documentos\\GitHub\\ATP-TrabalhoPratico-2024\\Trabalho Pr\u00E1tico ATP\\Trabalho Pr\u00E1tico ATP\\BatalhaNaval.cs",
               "RelativeToolTip": "Trabalho Pr\u00E1tico ATP\\BatalhaNaval.cs",
-              "ViewState": "AQIAAP8AAAAAAAAAAAAtwBwBAAAQAAAA",
+              "ViewState": "AQIAAIQBAAAAAAAAAAAswHEBAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T00:40:21.651Z",
+              "WhenOpened": "2024-06-30T19:08:26.968Z",
               "EditorCaption": ""
             }
           ]
