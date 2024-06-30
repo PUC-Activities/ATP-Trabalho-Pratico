@@ -24,11 +24,11 @@ namespace Trabalho_Prático_ATP
 
             try
             {
-                StreamReader frotaComputadores = new StreamReader("frotaComputador.txt", Encoding.UTF8);
+                StreamReader frotaComputadores = new StreamReader(@"frotaComputador.txt", Encoding.UTF8);
 
                 linhaArq = frotaComputadores.ReadLine();
 
-                while (linhaArq != null)
+                while ((linhaArq = frotaComputadores.ReadLine()) != null)
                 {
                     temp = linhaArq.Split(';');
                     posEmbarcaoArquivo.Linha = int.Parse(temp[1]);
@@ -117,10 +117,10 @@ namespace Trabalho_Prático_ATP
 
         static void PreenchePosicaoEmbarcao(Posicao embarcacao)
         {
-            Console.WriteLine("Linha: ");
+            Console.Write("Linha: ");
             embarcacao.Linha = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Coluna: ");
+            Console.Write("Coluna: ");
             embarcacao.Coluna = int.Parse(Console.ReadLine());
         }
 
@@ -182,17 +182,17 @@ namespace Trabalho_Prático_ATP
             //Preenchendo o tabuleiro do jogador com A, e escolhendo onde ficarão suas embarcações
             PreencheTabuleiros(tabuleiroHumano);
 
-            Console.WriteLine($"{nickName} posicione suas embarcações. Atenção: ");
+            Console.WriteLine($"\n{nickName} posicione suas embarcações. Atenção: ");
             Console.WriteLine($"Embarcação\tQuantidade\tRepresentação no tabuleiro");
-            Console.WriteLine($"0- Submarino\t 3 \tS");
-            Console.WriteLine($"1- Hidroavião\t 2 \tHH");
-            Console.WriteLine($"2- Cruzador\t 2 \tCCC");
-            Console.WriteLine($"3- Encouraçado\t 1 \tEEEE");
-            Console.WriteLine($"4- Porta-aviões\t 1 \tPPPPP");
+            Console.WriteLine($"0- Submarino\t 3 \t\tS");
+            Console.WriteLine($"1- Hidroavião\t 2 \t\tHH");
+            Console.WriteLine($"2- Cruzador\t 2 \t\tCCC");
+            Console.WriteLine($"3- Encouraçado\t 1 \t\tEEEE");
+            Console.WriteLine($"4- Porta-aviões\t 1 \t\tPPPPP");
 
             while (count < 10)
             {
-                Console.WriteLine($"{nickName}, digite o numero da embarcação que deseja adicionar ");
+                Console.Write($"\n{nickName}, digite o numero da embarcação que deseja adicionar: ");
                 nEmbarcacao = int.Parse(Console.ReadLine());
 
                 //o case é referente às embarcações, 1 é submarino, 2 hidroavião, e etc
@@ -300,16 +300,38 @@ namespace Trabalho_Prático_ATP
                 }
             }
 
-            if(quantAcertosHumano == 22)
+            string vencedor;
+            if (quantAcertosHumano == 22)
             {
-                Console.WriteLine($"O jogador de nickname: {nickName} foi o vencedor");
+                vencedor = nickName;
             }
             else
             {
-                Console.WriteLine($"O jogador computador foi o vencedor");
+                vencedor = "Computador";
             }
 
-            Console.ReadLine();
+            using (StreamWriter sw = new StreamWriter("jogadas.txt"))
+            {
+                sw.WriteLine($"O vencedor foi: {vencedor}");
+
+                Posicao[] tiros;
+                if (vencedor == nickName)
+                {
+                    tiros = humano.PosTirosDados;
+                }
+                else
+                {
+                    tiros = computador.PosTirosDados;
+                }
+
+                foreach (var tiro in tiros)
+                {
+                    if (tiro.Linha != -1 && tiro.Coluna != -1)
+                    {
+                        sw.WriteLine($"Linha: {tiro.Linha}, Coluna: {tiro.Coluna}");
+                    }
+                }
+            }
         }
 
     }
