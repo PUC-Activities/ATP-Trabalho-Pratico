@@ -150,11 +150,12 @@ namespace Batalha_Naval
 
         public void ImprimirTabuleiroJogador()
         {
+
             for (int i = 0; i < tabuleiro.GetLength(0); i++)
             {
                 for (int j = 0; j < tabuleiro.GetLength(1); j++)
                 {
-                    Console.Write($"  " + tabuleiro[i, j]);
+                    Console.Write($"\t{tabuleiro[i, j]}");
                 }
                 Console.WriteLine();
             }
@@ -168,11 +169,11 @@ namespace Batalha_Naval
                 {
                     if (tabuleiro[i, j] == 'A' || tabuleiro[i, j] == 'T' || tabuleiro[i, j] == 'X')
                     {
-                        Console.Write($"  " + tabuleiro[i, j]);
+                        Console.Write($"\t {tabuleiro[i, j]}");
                     }
                     else
                     {
-                        Console.Write("A");
+                        Console.Write("\tA");
                     }
                 }
                 Console.WriteLine();
@@ -182,24 +183,31 @@ namespace Batalha_Naval
         //nesse método, tem que verificar também se não existe embarcação nessa posição 
         public bool AdicionarEmbarcacao(Embarcacao embarcacao, Posicao posEmbarcacao)
         {
-            bool ehPossivel = false;
+            int linha = posEmbarcacao.Linha;
+            int coluna = posEmbarcacao.Coluna;
 
-            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+            // Verificar se a embarcação cabe no tabuleiro na posição inicial
+            if (linha < 0 || linha >= tabuleiro.GetLength(0) || coluna < 0 || coluna + embarcacao.Tamanho > tabuleiro.GetLength(1))
             {
-                for (int j = 0; j < tabuleiro.GetLength(1); j++)
-                {
-                    if (i == posEmbarcacao.Linha && j == posEmbarcacao.Coluna)
-                    {
-                        if (i + embarcacao.Tamanho <= 9)
-                        {
-                            ehPossivel = true;
-                        }
-                    }
-                }
-                Console.WriteLine();
+                return false;
             }
 
-            return ehPossivel;
+            // Verificar se todas as posições estão livres
+            for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
+            {
+                if (tabuleiro[linha, i] != 'A')
+                {
+                    return false;
+                }
+            }
+
+            // Adicionar a embarcação ao tabuleiro
+            for (int i = coluna; i < coluna + embarcacao.Tamanho; i++)
+            {
+                tabuleiro[linha, i] = 'X'; // Usando 'X' para marcar a posição da embarcação
+            }
+
+            return true;
         }
     }
 }
